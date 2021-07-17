@@ -10,6 +10,17 @@
  
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function calc(){
+			var cunkuanjine = document.getElementById("amount").value;
+			var cunkuannum = parseInt(cunkuanjine);
+			var lilv = document.getElementById("year").value;
+			var lixi = cunkuannum * lilv;
+			var total = cunkuannum + lixi;
+			document.getElementById("lixi").value=lixi;
+			document.getElementById("total").value=total;
+		}
+	</script>
 	</head>
 	<body>
 		<div class="container text-center" >
@@ -21,7 +32,7 @@
 				<tr>
 					<td>存款金额</td>
 					<td>
-						<input class="form-control" type="text">
+						<input class="form-control" type="text" id="amount">
 					</td>
 				</tr>
 				<tr>
@@ -30,7 +41,7 @@
 						<select id="year" class="form-control">
 							<option value="0.0175">一年(1.75%)</option>
 							<option value="0.0225">二年(2.25%)</option>
-							<option value="0.0275”>三年(2.75%)</option>
+							<option value="0.0275">三年(2.75%)</option>
 							<option value="0.0275">五年(2.75%)</option>
 						</select>
 					</td>
@@ -38,18 +49,18 @@
 				<tr>
 					<td>所得利息</td>
 					<td>
-						<input type="text" class="form-control" readonly="readonly"/>
+						<input type="text" class="form-control" readonly="readonly" id="lixi"/>
 					</td>
 				</tr>
 				<tr>
 					<td>本息合计</td>
 					<td>
-						<input type="text" id="total" class="form-control" readonly="readonly"/>
+						<input type="text" id="total" class="form-control" readonly="readonly" />
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button class="btn btn-primary btn-block">计算
+						<button onclick="calc()" class="btn btn-primary btn-block">计算</button>
 					</td>
 				</tr>
 			</table>
